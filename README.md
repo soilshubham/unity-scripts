@@ -1,2 +1,2 @@
-# unity-scripts
-All the essential codes in one place
+# Unity Scripts
+All the essential codes which are required every now and then.

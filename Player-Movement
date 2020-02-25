@@ -1,26 +1,16 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float speed = 6f;
+    public float speed = 10f;
     private Vector3 movement;
-    private Rigidbody playerRigidbody;        //Don't forget to add a rigidbody component
-    
-    private void Awake()
-    {
-    
-        playerRigidbody = GetComponent<Rigidbody>();
-
-    }
+    public Rigidbody playerRigidbody;
 
     private void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        movement.Set(h, 0f, v);
+        movement.Set(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         movement = movement.normalized * speed * Time.deltaTime;
-        playerRigidbody.MovePosition(transform.position + movement); 
+        playerRigidbody.MovePosition(transform.position + movement);
     }
 
 }
